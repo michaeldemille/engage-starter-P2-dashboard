@@ -5,8 +5,14 @@ var personsAreaElement = document.getElementById('persons-area');
 
 var persons = [
     { name: 'Fire Fly', info: 'I like my ship', img: 'just-keep-flying-detail-9281.jpg' },
-    { name: 'Moss', info: 'There\s a fire Roy', img: 'imgres.jpg' },
-    { name: 'King of Town', info: 'I like my ship', img: 'kot.PNG' }
+    { name: 'Moss ', info: 'There\s a fire Roy', img: 'imgres.jpg' },
+    { name: 'King of Town', info: 'Feels good to be king', img: 'kot.PNG' },
+    { name: 'King of Town', info: 'Feels good to be king', img: 'kot.PNG' },
+    { name: 'Fire Fly', info: 'I like my ship', img: 'just-keep-flying-detail-9281.jpg' },
+    { name: 'Moss ', info: 'There\s a fire Roy', img: 'imgres.jpg' },
+    { name: 'King of Town', info: 'Feels good to be king', img: 'kot.PNG' },
+    { name: 'King of Town', info: 'Feels good to be king', img: 'kot.PNG' }
+    
 
 ]
 
@@ -36,7 +42,6 @@ dashboard.buildTable = function buildTable(value) {
                 tr.appendChild(td);
             }
         }
-        console.log(tr)
         if (contentExists) tableElement.appendChild(tr);
     }
 }
@@ -47,18 +52,18 @@ dashboard.personArea = function personArea(value) {
     var personArea = '';
     for (var i = 0; i < persons.length; i++) {
         var element = persons[i];
-        if (element.name.toLowerCase ().indexOf(value) > -1) {
-        var person =
-            '<div class="col-xs-6 col-sm-3 placeholder">' +
-            '<img src=" ' + element.img + ' " width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">' +
-            '<h4>' + element.name + '</h4>' +
-            '<span class="text-muted">' + element.info + '</span>' +
-            '</div>'
+        if (element.name.toLowerCase().indexOf(value) > -1 && value != '') {
+            var person =
+                '<div class="col-xs-6 col-sm-3 placeholder">' +
+                '<img src=" ' + element.img + ' " width="200" height="200" class="img-responsive" alt="Generic placeholder thumbnail">' +
+                '<h4>' + element.name + '</h4>' +
+                '<span class="text-muted">' + element.info + '</span>' +
+                '</div>'
 
-        personArea += person;
+            personArea += person;
+        }
+        personsAreaElement.innerHTML = personArea;
     }
-    personsAreaElement.innerHTML = personArea;
-}
 }
 
 dashboard.search = function search(value) {
@@ -72,5 +77,5 @@ dashboard.search = function search(value) {
 
 
 dashboard.buildTable('');
-dashboard.personArea('');
+// dashboard.personArea('');
 
