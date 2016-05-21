@@ -104,7 +104,13 @@ body {
   border-radius: 50%;
 }
 
-.flow {
+/*.flow {
+  clear: both;
   display: inline-block;
   vertical-align: top;
-}
+}*/
+
+.flow:nth-child(4n+1) { 
+  clear: both; 
+  }
+

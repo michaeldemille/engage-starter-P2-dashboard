@@ -82,7 +82,7 @@ dashboard.addTableElement = function addTableElement(value) {
     cost: 'free', 
     year: '2010' 
   });
-  console.log('it worked')
+  console.log(name)
 };
 
 
