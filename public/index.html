@@ -96,6 +96,11 @@
               <span class="text-muted">Something else</span>
             </div>-->
           </div>
+          
+          <div class="row">
+            <input type="text" id="name-input" placeholder="Name">
+            <button class="btn btn-primary" onclick="dashboard.addTableElement(value)"> Save</button>
+          </div>
 
           <h2 class="sub-header">Section title</h2>
           <div class="table-responsive">
@@ -118,6 +123,7 @@
       </div>
     </div>
 
+
 <script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
 <script>
   // Initialize Firebase
@@ -125,10 +131,11 @@
     apiKey: "AIzaSyCWAxh-GIE_9BiMeZ_HqIeRhqeQcVA3pPM",
     authDomain: "stgbootcamp-56ae4.firebaseapp.com",
     databaseURL: "https://stgbootcamp-56ae4.firebaseio.com",
-    storageBucket: "",
+    storageBucket: "stgbootcamp-56ae4.appspot.com",
   };
   firebase.initializeApp(config);
 </script>
+    
 
     <!-- Bootstrap core JavaScript
     ================================================== -->

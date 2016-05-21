@@ -103,3 +103,8 @@ body {
   display: inline-block;
   border-radius: 50%;
 }
+
+.flow {
+  display: inline-block;
+  vertical-align: top;
+}
