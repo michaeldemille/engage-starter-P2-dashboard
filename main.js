@@ -4,10 +4,10 @@ var tableElement = document.getElementById('dashboard-list');
 var personsAreaElement = document.getElementById('persons-area');
 
 var persons = [
-    { name: 'Brinker the Tinker', info: 'Breaking code and taking names.', img: 'images/brinkerthetinker.png' },
     { name: 'Mike the Extraordinaire', info: 'Hacker by day; Genius, billionaire, playboy, philanthropist by night', img: 'images/mikeg2.jpg' },
     { name: 'Trawick the Hunter ', info: 'Lady\'s be on the look, cause Trawick the Hunter is in the house', img: 'images/hunter.png' },
     { name: 'Spencer the Kind', info: 'Need help, Spencer the Kind comes to mind', img: 'images/spencer.png' },
+    { name: 'Brinker the Tinker', info: 'Breaking code and taking names.', img: 'images/brinkerthetinker.png' },
     { name: 'David the Nurturer', info: 'Caring for those that can\'t care for themselves', img: 'images/david.jpg' },
     { name: 'Autumn the Mysterious', info: 'Lurks in the shadows... and doesn\'t share her projects :) ', img: 'images/autumn2.jpg' }
 
