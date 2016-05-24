@@ -21,27 +21,52 @@ var persons = [
 
 dashboard = {};
 
+
+
+// dashboard.buildTable = function buildTable(value, tableList) {
+//     if (value)  value = value.toLowerCase() 
+//     if (!tableList) tableList = []
+//     tableElement.innerHTML = '';
+//     for (var i = 0; i < tableList.length; i++) {
+//         var tr = document.createElement('TR');
+//         var contentExists = false;
+//         for (var key in tableList[i]) {
+//             if (tableList[i].hasOwnProperty(key)) {
+//                 var element = tableList[i][key];
+//                 var td = document.createElement('td')
+//                 if (element.toLowerCase().indexOf(value) > -1) {
+//                     contentExists = true;
+//                 }
+//                 var tdText = document.createTextNode(element);
+//                 td.appendChild(tdText);
+
+//                 tr.appendChild(td);
+//             }
+//         }
+//         if (contentExists) tableElement.appendChild(tr);
+//     }
+// };
+
 dashboard.buildTable = function buildTable(value, tableList) {
     if (value)  value = value.toLowerCase() 
-    if (!tableList) tableList = []
     tableElement.innerHTML = '';
+    var buildTable = '';
     for (var i = 0; i < tableList.length; i++) {
-        var tr = document.createElement('TR');
-        var contentExists = false;
-        for (var key in tableList[i]) {
-            if (tableList[i].hasOwnProperty(key)) {
-                var element = tableList[i][key];
-                var td = document.createElement('td')
-                if (element.toLowerCase().indexOf(value) > -1) {
-                    contentExists = true;
-                }
-                var tdText = document.createTextNode(element);
-                td.appendChild(tdText);
-
-                tr.appendChild(td);
-            }
+        var element = tableList[i]; 
+        console.log(element.name)
+       if (element.name.toLowerCase().indexOf(value) > -1) {
+          var table =
+               '<tr>' +
+               '<td>' + Math.floor(element.rank) + '</td>' +
+               '<td>' + element.name + '</td>' +
+               '<td>' + element.type + '</td>' +
+               '<td>' + element.cost + '</td>' +
+               '<td>' + element.year + '</td>' +
+               '</tr>'
+               console.log(table)
+            buildTable += table;
         }
-        if (contentExists) tableElement.appendChild(tr);
+        tableElement.innerHTML = buildTable;
     }
 };
 
@@ -62,36 +87,39 @@ dashboard.personArea = function personArea(value) {
             personArea += person;
         }
         personsAreaElement.innerHTML = personArea;
+        
     }
 };
 
 
 
 
-// setInterval(function() {
-//   $("div")
-//     .velocity("transition.slideLeftIn", { stagger: 250 })
-//     .delay(750)
-//     .velocity({ opacity: 0 }, 750)
-// }, 2000);
+
+
+
 
 
 dashboard.search = function search(value) {
 
     // if (value.length > 2) {
-    dashboard.buildTable(value);
+    dashboard.buildTable(value, tableList);
     dashboard.personArea(value);
     //  }
 };
 
 dashboard.addTableElement = function addTableElement(value) {
+    var rank = document.getElementById('rank-input').value;
     var name = document.getElementById('name-input').value;
+    var type = document.getElementById('type-input').value;
+    var cost = document.getElementById('cost-input').value;
+    var year = document.getElementById('year-input').value;
+    
     firebase.database().ref('table-elements').push({
-    rank: '1' + Math.random() * 100, 
+    rank: rank, 
     name: name, 
-    type: 'MOBA', 
-    cost: 'free', 
-    year: '2010' 
+    type: type, 
+    cost: cost, 
+    year: year 
   });
   console.log(name)
 };
@@ -99,17 +127,11 @@ dashboard.addTableElement = function addTableElement(value) {
 
 dashboard.personArea('');
 
+var tableList = []
+
 firebase.database().ref('table-elements').on('child_added', function(data) {
-  dashboard.buildTable('', [data.val()]);
+  tableList.push(data.val())
+  dashboard.buildTable('', tableList);
 });
 
-$("#navbar").velocity(
-  { 
-    scale: 1.5
-  },
-  { 
-    duration: 2000,
-    delay: 500, // Insert a 500ms delay between each loop alternation.
-    loop: 2 // Loop twice.
-  });
-
+$('.flow').velocity("transition.slideLeftIn", { stagger: 400, duration: 1000 })

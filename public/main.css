@@ -114,3 +114,18 @@ body {
   clear: both; 
   }
 
+.form-control {
+  margin-bottom: 10px;
+}
+
+.padded {
+  padding-top: 60px;
+}
+
+.notpadded {
+  margin-bottom: -60px;
+}
+
+.main {
+  margin-top: -60px
+}
