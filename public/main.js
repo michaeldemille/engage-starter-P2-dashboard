@@ -65,6 +65,17 @@ dashboard.personArea = function personArea(value) {
     }
 };
 
+
+
+
+// setInterval(function() {
+//   $("div")
+//     .velocity("transition.slideLeftIn", { stagger: 250 })
+//     .delay(750)
+//     .velocity({ opacity: 0 }, 750)
+// }, 2000);
+
+
 dashboard.search = function search(value) {
 
     // if (value.length > 2) {
@@ -92,5 +103,13 @@ firebase.database().ref('table-elements').on('child_added', function(data) {
   dashboard.buildTable('', [data.val()]);
 });
 
-
+$("#navbar").velocity(
+  { 
+    scale: 1.5
+  },
+  { 
+    duration: 2000,
+    delay: 500, // Insert a 500ms delay between each loop alternation.
+    loop: 2 // Loop twice.
+  });
 
